@@ -1,0 +1,65 @@
+.account-page {
+  .tab {
+    display:flex;
+    width:max-content;
+    margin: 0 auto;
+    padding: .5rem 0 .77rem 0;
+  }
+  .tab-item{
+    &-active {
+      a {
+        color:#68CD86 !important;
+      }
+    }
+    font-size: .18rem;
+    font-weight: bold;
+    &-left{
+      margin-right: .3rem;
+    }
+    a{
+      color: #242424;
+      text-decoration: none;
+    }
+  }
+  .form {
+    margin-bottom: .6rem;
+  }
+  .form-control {
+    padding: .16rem .3rem;
+    line-height: .24rem;
+    font-size: .16rem;
+    display:flex;
+  }
+  .form-title {
+    margin-right:.2rem;
+    width: .7rem;
+  }
+  .form-input {
+    flex: 1;
+    outline:none;
+    border: none;
+    color: #242424;
+  }
+  .form-input::placeholder{
+    color: #d9d9d9;
+  }
+  .submit {
+    margin: 0 .3rem .94rem .3rem;
+    width:80%;
+    display: block;
+    border-radius: .25rem;
+    background: #68CD86;
+    box-shadow: 0rem .06rem .06rem 0rem #42A85F;
+    border: none;
+    line-height: .5rem;
+    font-size: .16rem;
+    color: #FFF;
+  }
+  .accept {
+    font-size: .16rem;
+    line-height: .24rem;
+    text-align: center;
+    color: #CF1322;
+  }
+}
+

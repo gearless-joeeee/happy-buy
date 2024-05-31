@@ -1,0 +1,17 @@
+.modal{
+  position:fixed;
+  right: 0;
+  top: 0;
+  width: max-content;
+  white-space: nowrap;
+  background: #68CD86;
+  border-left: 5px solid #187FE7;
+  border-left-color: #42A85F;
+  padding: 10px;
+}
+
+.modal-message {
+  color: white;
+  text-align: left;
+  font-size: .16rem;
+}

@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition-delay: 99999s;
+  -webkit-transition: color 99999s ease-out, background-color 99999s ease-out;
+}
+@font-face {
+  font-family: "iconfont"; /* Project id 4567754 */
+  src: url('//at.alicdn.com/t/c/font_4567754_ssnb7nh29t.woff2?t=1717051505253') format('woff2'),
+       url('//at.alicdn.com/t/c/font_4567754_ssnb7nh29t.woff?t=1717051505253') format('woff'),
+       url('//at.alicdn.com/t/c/font_4567754_ssnb7nh29t.ttf?t=1717051505253') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+.page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #FFF;
+}
+
+ul {
+  list-style: none;
+}
