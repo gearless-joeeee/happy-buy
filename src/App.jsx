@@ -14,6 +14,7 @@ import Account from './components/Account/index.jsx'
 import Login from './components/Account/Login.jsx'
 import Register from './components/Account/Register.jsx'
 import Home from './components/Home/index.jsx'
+import Search from './components/Search/index.jsx'
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
   {
     path: '/home',
     element:<Home />
+  },
+  {
+    path: '/search',
+    element:<Search />
   },
 ])
 

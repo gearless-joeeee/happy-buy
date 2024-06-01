@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { register } from 'swiper/element/bundle'
 
 register()
@@ -53,13 +54,19 @@ function Banner({ location, banners }) {
     })
 
   }, [])
+
+  const navigate = useNavigate()
+  const handleSearchClick = () => {
+    navigate('/search')
+  }
+
   return (
     <div className="banner">
       <h3 className="location">
         <span className="iconfont">&#xe650;</span>
         {location?.address || ''}
       </h3>
-      <div className="search">
+      <div className="search" onClick={handleSearchClick}>
         <span className="iconfont">&#xe698;</span>
         <span>请输入你需要搜索的内容</span>
       </div>

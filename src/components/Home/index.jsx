@@ -53,6 +53,8 @@ function Home() {
     freshes = dataResult.freshes
     categories = dataResult.categories
   }
+
+  
   return (
     <div className='page page-home'>
       <Banner location={location} banners={banners}/>
