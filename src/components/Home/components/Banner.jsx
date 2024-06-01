@@ -1,10 +1,58 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { register } from 'swiper/element/bundle'
 
 register()
 function Banner({ location, banners }) {
+  const swiperElRef = useRef(null)
   const [page, setPage] = useState(1)
+  useEffect(() => {
 
+    
+    if(banners){
+      console.log(swiperElRef.current)
+
+        // swiper parameters
+        const swiperParams = {
+          slidesPerView: 1,
+          slidesPerGroup:2,
+          speed: 500,
+          loop:true,
+          cssMode:true,
+          on: {
+            init() {
+              // ...
+            },
+          },
+        }
+        
+        console.log("before assign")
+        console.dir(swiperElRef.current)
+        // now we need to assign all parameters to Swiper element
+        Object.assign(swiperElRef.current, swiperParams)
+        
+        console.log("after assign")
+        console.dir(swiperElRef.current)
+        
+        // and now initialize it
+        swiperElRef.current.initialize()
+
+
+    }
+    // if(banners){
+    //   console.dir(swiperElRef.current)
+
+    //   swiperElRef.current.slideSlots = banners.length
+    // }
+
+  }, [banners])
+
+  useEffect(() => {
+    swiperElRef.current.addEventListener('swiperslidechange', (e) => {
+      const [swiper] = e.detail
+      setPage(+swiper.activeIndex + 1)
+    })
+
+  }, [])
   return (
     <div className="banner">
       <h3 className="location">
@@ -17,11 +65,9 @@ function Banner({ location, banners }) {
       </div>
       <div className="swiper-area">
         <swiper-container
-          speed={500}
-          loop={true}
-          css-mode={true}
-          slides-per-view={1}
-          onSlideChange={(e) => setPage(e.activeIndex + 1)}
+          init="false"
+          // slides-per-view="1" speed="500" loop="true" css-mode="true"
+          ref={swiperElRef}
         >
           {(banners || []).map((item) => {
             return (
@@ -37,7 +83,9 @@ function Banner({ location, banners }) {
             )
           })}
         </swiper-container>
-        <p className="pagination">{page}/{banners?.length || 0} </p>
+        <p className="pagination">
+          {page}/{banners?.length || 0}{' '}
+        </p>
       </div>
     </div>
   )

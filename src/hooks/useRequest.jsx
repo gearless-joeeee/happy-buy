@@ -16,9 +16,10 @@ export default function useRequest(options) {
   const navigate = useNavigate()
     // 发起新的请求前,清空上次请求的状态
 
-  const loginToken = localStorage.getItem('token')
-  const headers = loginToken ? { token: loginToken, } : {}
+
   const request = useCallback((config) => {
+    const loginToken = localStorage.getItem('token')
+    const headers = loginToken ? { token: loginToken, } : {}
     // 登录后,每次发起请求时携带token
     return axios.request({
       baseURL: 'http://api.proxyman.io/mock/',

@@ -1,6 +1,5 @@
 const category = ({categories}) => {
 
-  console.log(categories)
   return (
     <div className="category">
       {
