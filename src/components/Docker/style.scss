@@ -1,0 +1,24 @@
+.docker {
+  background-color: #fff;
+  height:.49rem;
+  display: flex;
+  font-size: .12rem;
+  color: #B3C1C4;
+  z-index:3;
+  position: fixed;
+  bottom:0;
+  right:0;
+  left:0;
+  border-top: .01rem solid #F5F9FA;
+  &-item {
+    flex: 1;
+    text-align: center;
+    .iconfont {
+      margin: .04rem 0;
+      font-size: .18rem;
+    }
+  }
+  &-item-active {
+    color: var(--color-primary)
+  }
+}

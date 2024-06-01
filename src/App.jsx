@@ -1,4 +1,5 @@
 import 'normalize.css'
+import './styles/global.css'
 import './styles/border.css'
 import './styles/base.css'
 

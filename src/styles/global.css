@@ -1,0 +1,15 @@
+:root {
+  --tw-border-opacity: 0.6;
+  --tw-text-opacity: 1;
+  --tw-bg-opacity: 0.1;
+
+  --color-blue-border:rgb(20 158 202 / var(--tw-border-opacity));
+  --color-blue-text: rgb(4 89 117 / var(--tw-text-opacity));
+  --color-blue-bg:  rgb(20 158 202 / var(--tw-bg-opacity));
+
+  --color-orange-border: rgb(219 125 39 / var(--tw-border-opacity));
+  --color-orange-text: rgb(182 87 0 / var(--tw-text-opacity));
+  --color-orange-bg: rgb(219 125 39 / var(--tw-bg-opacity));
+
+  --color-primary: #68CD86;
+}

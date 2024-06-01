@@ -1,5 +1,7 @@
 import axios from 'axios'
+import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import message from '../utils/message';
 
 const defaultRequestConfig = {
   url: '/',
@@ -8,15 +10,16 @@ const defaultRequestConfig = {
   params: {}
 }
 
-export default function useRequest() {
+export default function useRequest(options) {
+
+  const [data, setData] = useState(null)
   const navigate = useNavigate()
     // 发起新的请求前,清空上次请求的状态
 
   const loginToken = localStorage.getItem('token')
-  const request = (config) => {
-    // 发起请求时携带tok
-
-    const headers = loginToken ? { token: loginToken, } : {}
+  const headers = loginToken ? { token: loginToken, } : {}
+  const request = useCallback((config) => {
+    // 登录后,每次发起请求时携带token
     return axios.request({
       baseURL: 'http://api.proxyman.io/mock/',
       url: config.url,
@@ -26,6 +29,7 @@ export default function useRequest() {
       headers,
     })
     .then((response) => {
+      setData(response.data)
       return response.data
     })
     .catch((e) => {
@@ -35,6 +39,13 @@ export default function useRequest() {
       }
       throw new Error(e)
     })
-  }
-  return request
+  }, [navigate])
+
+  useEffect(()=>{
+    request(options).catch(e => {
+      message(e?.message)
+    })
+  },[options, request])
+
+  return {request, data}
 }

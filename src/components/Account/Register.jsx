@@ -1,9 +1,9 @@
-import { useRef, useState } from "react"
+import {  useState } from "react"
 import useRequest from "../../hooks/useRequest"
 import { useNavigate } from "react-router-dom"
-import { Modal } from "../../utils/Modal"
+import message from "../../utils/message"
+
 export default function Register() {
-  const modalRef = useRef(null)
   const [userName, setUserName] = useState('')
   const [phone, setPhone] = useState('')
   const [password, setPassword] = useState('')
@@ -14,12 +14,12 @@ export default function Register() {
   const request = useRequest()
   const handleSubmit = () => {
     if(!password || !phone || !confirmPassword) {
-      modalRef.current.showMessage("请填写手机号或密码")
+      message("请填写手机号或密码")
       return
     }
 
     if( !(password === confirmPassword) ){
-      modalRef.current.showMessage("手机密码不一致")
+      message("手机密码不一致")
       return
     }
 
@@ -36,10 +36,10 @@ export default function Register() {
       console.log(data)
         const { message } = data
         // localStorage.setItem('token', token)
-        modalRef.current.showMessage(message)
+        message(message)
         navigate('/account/login')
     }).catch(e => {
-      modalRef.current.showMessage(e?.message || "unkonw error")
+      message(e?.message || "unkonw error")
     })
   }
   return (
@@ -88,7 +88,6 @@ export default function Register() {
       </form>
       <button className="submit" onClick={handleSubmit}>注册</button>
       <p className="accept">*登录即表示你赞同使用条款及隐私政策</p>
-      <Modal ref={modalRef}/>
     </>
   )
 }

@@ -9,13 +9,13 @@ input:-webkit-autofill:active {
   -webkit-transition-delay: 99999s;
   -webkit-transition: color 99999s ease-out, background-color 99999s ease-out;
 }
-@font-face {
-  font-family: "iconfont"; /* Project id 4567754 */
-  src: url('//at.alicdn.com/t/c/font_4567754_ssnb7nh29t.woff2?t=1717051505253') format('woff2'),
-       url('//at.alicdn.com/t/c/font_4567754_ssnb7nh29t.woff?t=1717051505253') format('woff'),
-       url('//at.alicdn.com/t/c/font_4567754_ssnb7nh29t.ttf?t=1717051505253') format('truetype');
-}
 
+@font-face {
+  font-family: 'iconfont';  /* Project id 4567754 */
+  src: url('//at.alicdn.com/t/c/font_4567754_8rmygcnxpmq.woff2?t=1717230245864') format('woff2'),
+       url('//at.alicdn.com/t/c/font_4567754_8rmygcnxpmq.woff?t=1717230245864') format('woff'),
+       url('//at.alicdn.com/t/c/font_4567754_8rmygcnxpmq.ttf?t=1717230245864') format('truetype');
+}
 .iconfont {
   font-family: "iconfont" !important;
   font-size: 16px;

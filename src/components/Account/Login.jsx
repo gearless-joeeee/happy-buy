@@ -1,9 +1,10 @@
-import { useRef, useState } from "react"
+import { useState } from "react"
 import useRequest from "../../hooks/useRequest"
 import { useNavigate } from "react-router-dom"
-import { Modal } from "../../utils/Modal"
+import message from "../../utils/message"
+
 export default function Login() {
-  const modalRef = useRef(null)
+
   const [phone, setPhone] = useState('')
   const [password, setPassword] = useState('')
 
@@ -12,7 +13,7 @@ export default function Login() {
   const request = useRequest()
   const handleSubmit = () => {
     if(!password || !phone) {
-      modalRef.current.showMessage("请填写手机号或密码")
+      message("请填写手机号或密码")
       return
     }
 
@@ -30,7 +31,7 @@ export default function Login() {
         localStorage.setItem('token', token)
         navigate('/home')
     }).catch(e => {
-      modalRef.current.showMessage(e?.message || "unkonw error")
+        message(e?.message || "unkonw error")
     })
   }
   return (
@@ -59,7 +60,6 @@ export default function Login() {
       </form>
       <button className="submit" onClick={handleSubmit}>登录</button>
       <p className="accept">*登录即表示你赞同使用条款及隐私政策</p>
-      <Modal ref={modalRef}/>
     </>
   )
 }
