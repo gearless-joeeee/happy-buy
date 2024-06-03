@@ -85,7 +85,7 @@ function Category() {
           type="text" 
           className="search-input" 
           placeholder='请输入商品'
-          onKeyDown={(e)=> handleKeyDown(e.key, e.target)}
+          onKeyDown={(e)=> handleKeyDown(e.key, e.currentTarget)}
         />
       </div>
       <ul className="category">

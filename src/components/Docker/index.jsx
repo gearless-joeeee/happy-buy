@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import './style.scss'
 
 
@@ -29,6 +30,9 @@ const items = [
 ]
 
 const Docker = ({activeName}) => {
+
+  const navigate = useNavigate()
+
   return (
     <div className="docker">
       {
@@ -36,7 +40,9 @@ const Docker = ({activeName}) => {
           return (
             <div
               className={`docker-item ${activeName === item.name ? 'docker-item-active': ''}`.trim()} 
-              key={item.name}>
+              key={item.name}
+              onClick={()=> navigate(`/${item.name}`)}
+            >
               <p className="iconfont" dangerouslySetInnerHTML={{
               __html: item.icon}}></p>
               <p>{item.text}</p>
