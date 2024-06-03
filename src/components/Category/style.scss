@@ -1,0 +1,134 @@
+.page-category {
+  position: relative;
+  font-size: .14rem;
+  .title {
+    position: relative;
+    line-height:.44rem;
+    font-size: .18rem;
+    text-align: center;
+    background:#fff;
+
+    .back-btn {
+      position: absolute;
+      left: .1rem;
+
+    }
+  }
+  .search-area {
+    display: flex;
+    line-height:.32rem;
+    padding: 0.06rem .1rem;
+    font-size: .14rem;
+    .search-icon {
+      width:.3rem;
+      color:#75818f;
+      text-align: center;
+    }
+    .search-input {
+      flex: 1;
+      background: none;
+      outline:none;
+      border: none;
+    }
+  }
+  .category {
+    position: absolute;
+    top: .84rem;
+    bottom: .5rem;
+    left:0;
+    width:.96rem;
+    overflow-y: scroll;
+    background: #f5f9fa;
+    &-item {
+      color:#242424;
+      line-height:.52rem;
+      font-size:.14rem;
+      text-align: center;
+      &-active {
+        background: #fff;
+      }
+    }
+  }
+  .tag {
+    position: absolute;
+    top: .84rem;
+    left:.96rem;
+    right: 0;
+    height: .52rem;
+    overflow-x: scroll;
+    line-height:.32rem;
+    white-space: nowrap;
+    &-item {
+      margin-top:.1rem;
+      margin-left:.1rem;
+      display: inline-block;
+      width: .7rem;
+      height: .32rem;
+      line-height:.32rem;
+      background: #f5f9fa;
+      text-align: center;
+      border-radius: .05rem;
+      &-active {
+        background: #d9f7be;
+        color: #52c41a;
+      }
+    }
+  }
+  .product {
+    position: absolute;
+    top: 1.4rem;
+    left: .96rem;
+    right:0;
+    bottom:.5rem;
+    overflow-y: scroll;
+    &-title {
+      font-weight:normal;
+      padding:0.08rem;
+    }
+    &-item{
+      display:flex;
+      padding: .1rem;
+      position: relative;
+
+      &-img {
+        width:.78rem;
+        height:.78rem;
+        margin-right:.08rem;
+      }
+      &-content{
+        flex: 1;
+        
+        &-title {
+          color:#242424;
+          font-size: .14rem;
+          line-height:.22rem;
+        }
+        &-sales {
+          margin-top:.1rem;
+          font-size:.12rem;
+          line-height:.16rem;
+          color:#b1b1b1;
+        }
+        &-price {
+          color:#cf1332;
+          font-size:.16rem;
+          line-height:.24rem;
+          position: absolute;
+          margin-top:.1rem;
+        }
+        &-buy {
+          position: absolute;
+          bottom:.1rem;
+          right:.1rem;
+          width:.4rem;
+          line-height:.24rem;
+          text-align:center;
+          color:#fff;
+          background: #73d13d;
+          border-radius: .04rem;
+          border:none;
+        }
+      }
+    }
+  }
+}

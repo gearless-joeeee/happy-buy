@@ -16,13 +16,13 @@ const Detail =  () => {
   const result = data?.data || null
 
   const navigate = useNavigate()
-  
+
   return (
     <div className="page page-detail">
       <div className="title">
         <span 
           className="iconfont back-btn"
-          onClikc={()=> navigate(-1)}
+          onClick={()=> navigate(-1)}
         >&#xe601;</span>
         商品详情
       </div>
@@ -33,7 +33,11 @@ const Detail =  () => {
             <span className="main-meta-price-yen">&yen;</span>
             {result?.price}
           </span>
-         已售{result?.sales}
+          <span className="main-meta-sales">
+            已售
+            <span className='nubmer'>{result?.sales}</span>
+          </span>
+         
         </div>
         <div className="main-content">
           <p className="main-content-title">{result?.title}</p>

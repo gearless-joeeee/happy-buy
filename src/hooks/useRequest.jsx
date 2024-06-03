@@ -10,7 +10,7 @@ const defaultRequestConfig = {
   params: {}
 }
 
-export default function useRequest(options = defaultRequestConfig) {
+export default function useRequest(options) {
 
   const [data, setData] = useState(null)
   const navigate = useNavigate()
@@ -30,8 +30,8 @@ export default function useRequest(options = defaultRequestConfig) {
       baseURL: 'http://api.proxyman.io/mock/',
       url: config.url,
       method: config.method,
-      data: config.data,
-      params: config.params,
+      data: config.data ||defaultRequestConfig.data,
+      params: config.params || defaultRequestConfig.params,
       headers,
     })
     .then((response) => {
