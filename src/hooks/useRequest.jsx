@@ -10,7 +10,7 @@ const defaultRequestConfig = {
   params: {}
 }
 
-export default function useRequest(options) {
+export default function useRequest(options = defaultRequestConfig) {
 
   const [data, setData] = useState(null)
   const navigate = useNavigate()
@@ -18,15 +18,20 @@ export default function useRequest(options) {
 
 
   const request = useCallback((config) => {
+
+    //  每次请求前, 清空上次请求的状态
+    setData(null)
+
+    // 登录后,每次发起请求时携带token
     const loginToken = localStorage.getItem('token')
     const headers = loginToken ? { token: loginToken, } : {}
-    // 登录后,每次发起请求时携带token
+
     return axios.request({
       baseURL: 'http://api.proxyman.io/mock/',
       url: config.url,
       method: config.method,
-      data: config.data || defaultRequestConfig.data ,
-      params: config.params || defaultRequestConfig.params,
+      data: config.data,
+      params: config.params,
       headers,
     })
     .then((response) => {
@@ -43,9 +48,11 @@ export default function useRequest(options) {
   }, [navigate])
 
   useEffect(()=>{
-    request(options).catch(e => {
-      message(e?.message)
-    })
+    if(!options.manual){
+      request(options).catch(e => {
+        message(e?.message)
+      })
+    }
   },[options, request])
 
   return {request, data}
