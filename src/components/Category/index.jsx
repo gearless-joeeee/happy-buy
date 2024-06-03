@@ -7,20 +7,41 @@ import Docker from '../Docker'
 
 
 
+
 function Category() {
+  // 页面跳转
+  const navigate = useNavigate()
+
 
   const [products, setProducts] = useState([])
   const [categories, setCategories] = useState([])
   const [tags, setTags] = useState([])
 
-  const { request: tagAndCategoryRequest} = useRequest({manual: true})
 
+  // 驱动请求重新发送的数据
+  const [currentTag, setCurrentTag] = useState('')
+  const [currentCategory, setCurrentCategory] = useState('')
+  const [keyword, setKeyword] = useState('')
+
+
+  const { request: tagAndCategoryRequest} = useRequest({manual: true})
   const { request: prodcutRequest} = useRequest({manual: true})
+
+  function handleKeyDown(key, target) {
+    if(key==='Enter'){
+      setKeyword(target.value)
+    }
+  }
 
   useEffect(()=>{
     prodcutRequest({
       url: '/categoryproduct',
-      method: 'GET',
+      method: 'POST',
+      data:{
+        keyword,
+        category:currentCategory,
+        tag: currentTag
+      }
     }).then(data=>{
       if(data?.success){
         const result = data.data
@@ -29,7 +50,7 @@ function Category() {
     }).catch((e) => {
       message(e?.message)
     })
-  },[prodcutRequest])
+  },[prodcutRequest, currentTag, currentCategory,keyword])// 数据改变,请求重新发送
 
   useEffect(()=>{
     tagAndCategoryRequest({
@@ -46,7 +67,9 @@ function Category() {
     })
   },[tagAndCategoryRequest])
 
-  const navigate = useNavigate()
+
+
+
   return (
     <div className='page page-category'>
         <h2 className="title">
@@ -58,28 +81,47 @@ function Category() {
       </h2>
       <div className="search-area">
         <span className="iconfont search-icon">&#xe698;</span>
-        <input type="text" className="search-input" placeholder='请输入商品'/>
+        <input 
+          type="text" 
+          className="search-input" 
+          placeholder='请输入商品'
+          onKeyDown={(e)=> handleKeyDown(e.key, e.target)}
+        />
       </div>
       <ul className="category">
+        <li 
+          className={currentTag===''? 'category-item-active category-item': 'category-item'}
+        >全部</li>
         {
           categories.map(category => {
             return (
-              <li className="category-item" key={category?.id}>{category?.name}</li>
+              <li 
+                key={category?.id}
+                onClick={()=> setCurrentCategory(category.id)}
+                className={currentCategory=== category.id? 'category-item-active category-item': 'category-item'}
+              >{category?.name}</li>
             )
           })
         }
       </ul>
       <ul className="tag">
+        <li 
+          className={currentTag===''? 'tag-item-active tag-item': 'tag-item'}
+        >全部</li>
         {
           tags.map(tag=>{
             return (
-              <li className="tag-item" key={tag}>{tag}</li>
+              <li 
+              className={currentTag===tag? 'tag-item-active tag-item': 'tag-item'}
+                key={tag}
+                onClick={()=> setCurrentTag(tag)}
+              >{tag}</li>
             )
           })
         }
       </ul>
       <ul className="product">
-        <h4 className="product-title">精品商品(6)</h4>
+        <h4 className="product-title">精品商品({products.length})</h4>
         {
           products.map(product => {
             return (

@@ -1,6 +1,8 @@
 ## project snapshot
 
+![home](snapshot/snapshot.png)
 
+![category](snapshot/snapshot-2.png)
 ## project setup
 
 1. npm i
