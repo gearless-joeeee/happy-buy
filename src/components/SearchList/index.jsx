@@ -94,6 +94,7 @@ const SearhList = () => {
         {
           searchList.map(item => {
             return (
+              <Link to={`/detail/${item.id}`}>
               <li className="item" key={item.id}>
                 <img src={item.imgUrl} alt={item.title} className="item-img" />
                 <div className="item-content">
@@ -107,6 +108,7 @@ const SearhList = () => {
                   </p>
                 </div>
               </li>
+              </Link>
             )
           })
         }

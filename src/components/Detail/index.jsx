@@ -1,5 +1,5 @@
 import './style.scss'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useRef } from 'react'
 import useRequest from '../../hooks/useRequest'
 
@@ -15,10 +15,15 @@ const Detail =  () => {
   const {data} = useRequest(requestData.current)
   const result = data?.data || null
 
+  const navigate = useNavigate()
+  
   return (
     <div className="page page-detail">
       <div className="title">
-        <span className="iconfont back-btn">&#xe601;</span>
+        <span 
+          className="iconfont back-btn"
+          onClikc={()=> navigate(-1)}
+        >&#xe601;</span>
         商品详情
       </div>
       <img src={result?.imgUrl} alt={result?.title} className="product" />
