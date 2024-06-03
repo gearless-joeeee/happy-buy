@@ -15,6 +15,7 @@ import Login from './components/Account/Login.jsx'
 import Register from './components/Account/Register.jsx'
 import Home from './components/Home/index.jsx'
 import Search from './components/Search/index.jsx'
+import SearchList from './components/SearchList/index.jsx'
 
 const router = createBrowserRouter([
   {
@@ -40,8 +41,12 @@ const router = createBrowserRouter([
     element:<Home />
   },
   {
-    path: '/search',
+    path: '/search/:shopId',
     element:<Search />
+  },
+  {
+    path: '/searchList/:shopId/:keyword',
+    element:<SearchList />
   },
 ])
 

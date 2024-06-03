@@ -57,7 +57,7 @@ function Banner({ location, banners }) {
 
   const navigate = useNavigate()
   const handleSearchClick = () => {
-    navigate('/search')
+    navigate(`/search/${location.id}`)
   }
 
   return (

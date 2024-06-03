@@ -1,20 +1,31 @@
 import { useState } from "react"
-import { Link} from 'react-router-dom'
+import { Link, useNavigate, useParams} from 'react-router-dom'
 import "./style.scss"
 import useRequest from "../../hooks/useRequest"
 
+
+// 仅在加载组件时加后端api请求配置
 const defaultRequestData ={
   url: '/hotsearch',
   method: "GET",
+  params: { shopId: ''}
 }
 
 
 const Search = () => {
 
-  const searchHistoryList = localStorage.getItem('history-list')
+  const searchHistoryList = localStorage.getItem('search-history')
   const searchHistoryListParsed = searchHistoryList ? JSON.parse(searchHistoryList) : ["猪肉"]
   const [keyword, setKeyword] = useState('')
   const [historyList, setHistoryList] = useState(searchHistoryListParsed)
+
+  const navigate = useNavigate()
+
+  // 页面跳转携带的入参
+  const params = useParams()
+  if(params.shopId) {
+    defaultRequestData.params.shopId = params.shopId
+  }
 
   const { data } = useRequest(defaultRequestData)
   const hotList = data?.data || []
@@ -31,15 +42,20 @@ const Search = () => {
         newHistoryList.splice(20, newHistoryList.length - 20)
       }
       setHistoryList(newHistoryList)
-      localStorage.setItem('history-list', JSON.stringify(newHistoryList))
+      localStorage.setItem('search-history', JSON.stringify(newHistoryList))
+      navigate(`/searchList/${params.shopId}/${keyword}`)
+      setKeyword('')
     } 
   }
 
   const handleHistoryListClean = () => {
     setHistoryList([])
-    localStorage.setItem('history-list', JSON.stringify([]))
+    localStorage.setItem('search-history', JSON.stringify([]))
   }
 
+  function handleKeywordClick(keyword) {
+    navigate(`/searchList/${params.shopId}/${keyword}`);
+  }
 
 
   return (
@@ -74,6 +90,7 @@ const Search = () => {
                     <li 
                     className="list-item"
                     key={item + index}
+                    onClick={() => handleKeywordClick(item)}
                     >{item}</li>
                   )
                 })
@@ -93,6 +110,7 @@ const Search = () => {
                     <li 
                     className="list-item"
                     key={item + index}
+                    onClick={() => handleKeywordClick(item.keyword)}
                     >{item.keyword}</li>
                   )
                 })
