@@ -12,7 +12,7 @@ function Category() {
   // 页面跳转
   const navigate = useNavigate()
 
-
+  
   const [products, setProducts] = useState([])
   const [categories, setCategories] = useState([])
   const [tags, setTags] = useState([])
@@ -125,7 +125,7 @@ function Category() {
         {
           products.map(product => {
             return (
-              <li className="product-item" key={product?.id}>
+              <li className="product-item" key={product?.id} onClick={()=> navigate(`/detail/${product.id}`)}>
                 <img src={product?.imgUrl} alt={product?.title} 
                 className="product-item-img" />
                 <div className="prodcut-item-content">

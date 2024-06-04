@@ -1,5 +1,17 @@
+import { useNavigate } from "react-router-dom"
+
+
+
+
+
 
 const Card = ({title, list}) => {
+
+
+  const navigate = useNavigate()
+  function handleItemClick(productId){
+    navigate(`/detail/${productId}`)
+  }
 
   return (
     <div className="card">
@@ -12,7 +24,7 @@ const Card = ({title, list}) => {
         {
           (list || []).map(item => {
             return (
-              <div className="card-content-item" key={item.id}>
+              <div className="card-content-item" key={item.id} onClick={()=> handleItemClick(item.id)}>
                 <img src={item.imgUrl} alt="{item.name}" className="card-content-item-img" />
               <div className="card-content-item-desc">{item.name}</div>
               <div className="card-content-item-price">
