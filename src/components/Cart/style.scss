@@ -11,6 +11,10 @@
     border-radius: .12rem;
     margin-left: .1rem;
     margin-right: .12rem;
+    &-active {
+      background: var(--color-primary);
+      border: none;
+    }
   }
   .title {
     background:#fff;
