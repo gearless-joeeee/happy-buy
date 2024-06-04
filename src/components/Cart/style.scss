@@ -122,8 +122,14 @@
         font-weight: bold;
       }
     }
-    &-check {
-      justify-self: flex-end;
+    .check {
+      color:#fff;
+      // line-height: .5rem;
+      background: none;
+      background-color: var(--color-primary);
+      border:none;
+      width: 1.35rem;
+      font-size:.16rem;
     }
   }
 }

@@ -77,7 +77,7 @@ function Cart() {
           <span className="total-price-text">合计:</span>
           <span className="total-price-amount">{totalPrice}</span>
         </div>
-        <button className="checl">结算({totalCount})</button>
+        <button className="check">结算({totalCount})</button>
       </div>
       <Docker activeName={'cart'}/>
     </div>
