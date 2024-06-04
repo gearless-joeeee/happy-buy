@@ -1,0 +1,129 @@
+.page-cart {
+  background: #f5f9fa;
+  overflow-y:scroll;
+  padding-bottom:1.12rem;
+  font-size: .14rem;
+  position: relative;
+  .radio {
+    width: .24rem;
+    height: .24rem;
+    border: .01rem solid #b1b1b1;
+    border-radius: .12rem;
+    margin-left: .1rem;
+    margin-right: .12rem;
+  }
+  .title {
+    background:#fff;
+    line-height: .44rem;
+    font-size: .18rem;
+    text-align: center;
+    
+  }
+  .shop{
+    background-color: #fff;
+    &-title{
+      height: .4rem;
+      display: flex;
+      align-items: center;
+      font-weight: normal;
+      // .radio {
+      //   margin-left: .1rem;
+      //   margin-right: .12rem;
+      // }
+      &-icon {
+        margin-right:.08rem;
+
+      }
+    }
+    &-product{
+      display: flex;
+      align-items: center;
+      padding:  .16rem .1rem .16rem 0;
+      &-img {
+        // display: block;
+        width:.96rem;
+        aspect-ratio: 1/1;
+        margin-right:.08rem;
+      }
+      &-content{
+        flex: 1;
+        position: relative;
+        &-title {
+          font-size: .14rem;
+          line-height: .22rem;
+          color:#242424;
+          // word-break: break-all;
+          word-wrap: break-word;
+        }
+        &-weight{
+          margin-top:.08rem;
+          font-size:.12rem;
+          line-height:.18rem;
+          color:#b1b1b1;
+        }
+        &-price {
+          display:inline-block;
+          margin-top:.14rem;
+          font-size: .16rem;
+          color:#cf1322;
+          &-yen {
+            font-size:.12rem;
+          }
+        }
+        &-count {
+          position: absolute;
+          bottom:0;
+          right:.2rem;
+          // color:#fff;
+          height:.24rem;
+          line-height:.24rem;
+          text-align:center;
+          min-width: .4rem;
+          background-color: #f5f9fa;
+          border: .01rem solid #b1b1b1;
+        }
+      }
+    }
+  }
+  .total {
+    position: fixed;
+    background:#fff;
+    left:0;
+    right:0;
+    bottom:.5rem;
+    height:.5rem;
+    display: flex;
+    .select-all {
+      display:flex;
+      align-items:center;
+      width:.94rem;
+      &-text{
+        color:#b1b1b1;
+        font-size:.16rem;
+      }
+    }
+    &-price{
+      flex:1;
+      display: flex;
+      &-text{
+        flex:1;
+        text-align: right;
+        font-size:.15rem;
+        color:#242424;
+        line-height:.5rem;
+      }
+      &-amount {
+        width:.8rem;
+        text-align:right;
+        color:#cf1322;
+        margin-right:.08rem;
+        line-height: .5rem;
+        font-size:.18rem;
+        font-weight: bold;
+      }
+    }
+    &-check {
+      justify-self: flex-end;
+    }
+  }
+}
