@@ -12,4 +12,8 @@
   --color-orange-bg: rgb(219 125 39 / var(--tw-bg-opacity));
 
   --color-primary: #68CD86;
+
+
+  --color-page-bg: #f5f9fa;
+  --color-text: #242424;
 }

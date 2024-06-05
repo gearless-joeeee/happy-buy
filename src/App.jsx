@@ -19,6 +19,7 @@ import SearchList from './components/SearchList/index.jsx'
 import Detail from './components/Detail/index.jsx'
 import Category from './components/Category/index.jsx'
 import Cart from './components/Cart/index.jsx'
+import Order from './components/Order/index.jsx'
 
 const router = createBrowserRouter([
   {
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
   {
     path: '/cart',
     element:<Cart />
+  },
+  {
+    path: '/order/:orderId',
+    element:<Order />
   },
 ])
 
