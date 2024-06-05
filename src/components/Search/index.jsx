@@ -6,7 +6,7 @@ import useRequest from "../../hooks/useRequest"
 
 // 仅在加载组件时加后端api请求配置
 const defaultRequestData ={
-  url: '/hotsearch',
+  url: '/hotsearch.json',
   method: "GET",
   params: { shopId: ''}
 }

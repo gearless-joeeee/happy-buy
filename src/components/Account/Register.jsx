@@ -24,8 +24,8 @@ export default function Register() {
     }
 
     request({
-      url: '/reigster',
-      method: 'POST',
+      url: '/register.json',
+      method: 'GET',
       data: {
         userName,
         phone,

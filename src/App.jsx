@@ -68,6 +68,10 @@ const router = createBrowserRouter([
     path: '/order/:orderId',
     element:<Order />
   },
+  {
+    path: '*',
+    element:<Home />
+  },
 ])
 
 

@@ -13,7 +13,7 @@ function Cart() {
   const { request } = useRequest({ manual: true })
   useEffect(() => {
     request({
-      url: '/cartProducts',
+      url: '/cartProducts.json',
       method: 'GET',
     })
       .then((response) => {
@@ -100,8 +100,8 @@ function Cart() {
       return
     }
     submitRequest({
-      url:'/cartSubmit',
-      method:'POST',
+      url:'/cartSubmit.json',
+      method:'GET',
       data: params
     }).then(response => {
       if(response.success){

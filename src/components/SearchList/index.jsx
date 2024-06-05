@@ -13,7 +13,7 @@ const SearhList = () => {
   const [keyword, setKeyword] = useState(params.keyword)
   const [tabValue, setTabValue] = useState('default')
   const [requestData, setRequestData] = useState({
-    url:'/searchlist',
+    url:'/searchlist.json',
     method:"GET",
     params: {
       keyword,

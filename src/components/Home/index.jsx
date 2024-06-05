@@ -7,7 +7,7 @@ import useRequest from '../../hooks/useRequest'
 import Docker from '../Docker'
 
 const defaultRequestConfig = {
-  url: '/home',
+  url: '/home.json',
   methods: 'GET',
   data: {
     latitude: 37.7304167,

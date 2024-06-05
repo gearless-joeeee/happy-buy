@@ -17,7 +17,7 @@ const Detail =  () => {
   const {request: cartRequset} = useRequest({manual: true})
   useEffect(()=>{
     cartRequset({
-      url: '/cart',
+      url: '/cart.json',
       method: 'GET',
       params: {
         id: params.id
@@ -59,7 +59,7 @@ const Detail =  () => {
 
   // 请入detail页请求商品数据
   const requestData = useRef({
-    url:'/detail',
+    url:'/detail.json',
     method: 'GET',
     params: {id: params.id}
   })

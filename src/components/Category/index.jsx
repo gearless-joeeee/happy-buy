@@ -30,8 +30,8 @@ function Category() {
 
   useEffect(() => {
     prodcutRequest({
-      url: '/categoryproduct',
-      method: 'POST',
+      url: '/categoryProduct.json',
+      method: 'GET',
       data: {
         keyword,
         category: currentCategory,
@@ -51,7 +51,7 @@ function Category() {
 
   useEffect(() => {
     tagAndCategoryRequest({
-      url: '/categorytagList',
+      url: '/categoryAndTagList.json',
       method: 'GET',
     })
       .then((data) => {
@@ -79,7 +79,7 @@ function Category() {
   function handleProductClick(e, productId) {
     e.stopPropagation()
     cartRequset({
-      url: '/cartProductInfo',
+      url: '/cartProductInfo.json',
       method: 'GET',
       params: { productId },
     })
@@ -110,7 +110,7 @@ function Category() {
   function changeCartInfo() {
     console.log('get executed')
     cartChangeRequest({
-      url: '/cartchange',
+      url: '/cartChange.json',
       method: 'GET',
       params: {
         id: cartProductInfo.id,

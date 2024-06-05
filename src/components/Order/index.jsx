@@ -13,7 +13,7 @@ function Order() {
   const params = useParams()
   useEffect(() => {
     request({
-      url: '/orderDetail',
+      url: '/orderDetail.json',
       method: 'GET',
       params: {
         id: params.orderId,
@@ -33,7 +33,7 @@ function Order() {
   const { request: addressListRequest } = useRequest({ manual: true })
   function handleReceiverClick() {
     addressListRequest({
-      url: '/userAddress',
+      url: '/userAddress.json',
       method: 'GET',
     })
       .then((response) => {
@@ -68,7 +68,7 @@ function Order() {
   const navigate = useNavigate()
   function handleSubmitClick(){
     paymentRequest({
-      url: '/payment',
+      url: '/pay.json',
       method: 'GET',
       params: {
         id: params.orderId,

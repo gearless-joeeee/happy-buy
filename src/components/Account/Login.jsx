@@ -18,7 +18,7 @@ export default function Login() {
     }
 
     request({
-      url: '/login',
+      url: '/login.json',
       method: 'GET',
       params: {
         phone,
