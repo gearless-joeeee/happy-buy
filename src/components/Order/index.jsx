@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import useRequest from '../../hooks/useRequest'
 import './style.scss'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import message from '../../utils/message'
 import Popover from '../Popover'
 import { Picker } from 'antd-mobile'
@@ -58,6 +58,30 @@ function Order() {
 
   // 送达日期
   const [showTimeRange, setShowTimeRange] = useState(false)
+
+  // 支付方式弹窗
+  const [showPayment, setShowPayment] = useState(false)
+  const [payway, setPayWay] = useState('weixin')
+  const {request: paymentRequest} = useRequest({manual: true})
+
+  // 页面跳转
+  const navigate = useNavigate()
+  function handleSubmitClick(){
+    paymentRequest({
+      url: '/payment',
+      method: 'GET',
+      params: {
+        id: params.orderId,
+        payway,
+        time: data.time,
+        addressId: data.address.id
+      }
+    }).then(response=>{
+      if(response.success){
+        navigate('/home')
+      }
+    }).catch(e=> message(e.message))
+  }
 
   return data ? (
     <div className="page page-order">
@@ -130,7 +154,7 @@ function Order() {
             {data.total}
           </span>
         </p>
-        <button className="order-submit-btn">提交订单</button>
+        <button className="order-submit-btn" onClick={()=> setShowPayment(true)}>提交订单</button>
       </div>
       <Popover
         show={showAddressList}
@@ -173,6 +197,34 @@ function Order() {
           console.log('onSelect', val, extend.items)
         }}
       />
+      <Popover show={showPayment} maskClickCallback={()=>setShowPayment(false)}>
+        <div className="payment-popover">
+          <h3 className="payment-popover-title">选择支付方式</h3>
+          <p className="payment-popover-price">&yen;{data.total}</p>
+          <ul className="payment-popover-methods">
+            <li className="payment-popover-method">
+              <img src={require('../../images/weixin.png')} alt="wechat-pay" className="payment-popover-method-img" />
+              <span className="payment-popover-method-name">微信</span>
+              <div 
+                className={payway === 'weixin'? 'radio radio-active' : 'radio'}
+                onClick={()=> setPayWay('weixin')}
+              ></div>
+            </li>
+            <li className="payment-popover-method">
+              <img src={require('../../images/cash.png')} alt="remain-pay" className="payment-popover-method-img" />
+              <span className="payment-popover-method-name">余额 ({data.money})</span>
+              <div 
+                className={payway === 'cash'? 'radio radio-active' : 'radio'}
+                onClick={()=> setPayWay('cash')}
+              ></div>
+            </li>
+          </ul>
+          <button 
+            className="payment-popover-btn"
+            onClick={handleSubmitClick}
+          >立即支付</button>
+        </div>
+      </Popover>
     </div>
   ) : null
 }

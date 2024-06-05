@@ -177,4 +177,62 @@
       }
     }
   }
+
+  .radio {
+    // position:absolute;
+    right: .1rem;
+    width: .24rem;
+    height: .24rem;
+    border: .01rem solid #b1b1b1;
+    border-radius: .12rem;
+    margin-left: .1rem;
+    margin-right: .12rem;
+    &-active {
+      background: var(--color-primary);
+      border: none;
+    }
+  }
+
+  .payment-popover{
+    display: flex;
+    flex-direction: column;
+    &-title {
+      font-size:.14rem;
+      line-height:.48rem;
+      text-align:center;
+    }
+    &-price {
+      margin-top:.2rem;
+      margin-bottom: .1rem;
+      font-size:.24rem;
+      line-height: .28rem;
+      color: var(--color-primary);
+      text-align:center;
+    }
+    &-method{
+      position:relative;
+      display: flex;
+      align-items: center;
+      line-height:.48rem;
+      &-img {
+        margin-left: .1rem;
+        margin-right:.18rem;
+        height: .28rem;
+        aspect-ratio: 1/1;
+      }
+      &-name {
+        flex:1;
+
+      }
+    }
+    &-btn {
+      border:none;
+      background: none;
+      background-color: #73d13d;
+      color:#fff;
+      margin: .1rem .16rem;
+      line-height: .44rem;
+      border-radius: .22rem;
+    }
+  }
 }
