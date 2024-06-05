@@ -1,64 +1,63 @@
 .page-order {
   background: var(--color-page-bg);
-  font-size: .14rem;
+  font-size: 0.14rem;
   overflow-y: scroll;
   color: var(--color-text);
-  padding-bottom: .74rem;
-  .title{
-    line-height:.44rem;
-    font-size:.18rem;
-    text-align:center;
+  padding-bottom: 0.74rem;
+  .title {
+    line-height: 0.44rem;
+    font-size: 0.18rem;
+    text-align: center;
     background: #fff;
   }
   .receiver {
-    display:flex;
-    padding-top:.14rem;
-    padding-bottom: .28rem;
+    display: flex;
+    padding-top: 0.14rem;
+    padding-bottom: 0.28rem;
     background: #fff;
-    &-icon{
+    &-icon {
       color: #73d13d;
-      font-size:.2rem;
-      width:.48rem;
+      font-size: 0.2rem;
+      width: 0.48rem;
       // line-height: .86rem;
       align-self: center;
-      text-align:center;
+      text-align: center;
     }
-    &-content{
+    &-content {
       flex: 1;
-      font-size:.14rem;
+      font-size: 0.14rem;
       line-height: 1.15;
       &-name {
-        margin-right:.22rem;
+        margin-right: 0.22rem;
       }
       &-address {
-        margin-top:.06rem;
-        font-size:.12rem;
-        line-height: .22rem;
+        margin-top: 0.06rem;
+        font-size: 0.12rem;
+        line-height: 0.22rem;
       }
     }
   }
   .delivery {
-    margin-top: .1rem;
-    background:#fff;
-    font-size:.14rem;
-    line-height: .48rem;
+    margin-top: 0.1rem;
+    background: #fff;
+    font-size: 0.14rem;
+    line-height: 0.48rem;
     display: flex;
-    &-text{
-      margin-left:.1rem;
+    &-text {
+      margin-left: 0.1rem;
     }
-    &-select{
-      flex:1;
-      margin-right:.4rem;
+    &-select {
+      flex: 1;
+      margin-right: 0.4rem;
       text-align: right;
-      color:#b1b1b1;
+      color: #b1b1b1;
     }
-
   }
-  .shop{
-    margin-top: .1rem;
+  .shop {
+    margin-top: 0.1rem;
     background-color: #fff;
-    &-title{
-      height: .4rem;
+    &-title {
+      height: 0.4rem;
       display: flex;
       align-items: center;
       font-weight: normal;
@@ -67,53 +66,53 @@
       //   margin-right: .12rem;
       // }
       &-icon {
-        margin-right:.08rem;
-        margin-left:.08rem;
+        margin-right: 0.08rem;
+        margin-left: 0.08rem;
       }
     }
-    &-product{
+    &-product {
       display: flex;
       align-items: center;
-      padding:  .16rem .1rem .16rem 0;
+      padding: 0.16rem 0.1rem 0.16rem 0;
       &-img {
         // display: block;
-        width:.96rem;
+        width: 0.96rem;
         aspect-ratio: 1/1;
-        margin-right:.08rem;
+        margin-right: 0.08rem;
       }
-      &-content{
+      &-content {
         flex: 1;
         position: relative;
         &-title {
-          font-size: .14rem;
-          line-height: .22rem;
-          color:#242424;
+          font-size: 0.14rem;
+          line-height: 0.22rem;
+          color: #242424;
           // word-break: break-all;
           word-wrap: break-word;
         }
-        &-weight{
-          margin-top:.08rem;
-          font-size:.12rem;
-          line-height:.18rem;
-          color:#b1b1b1;
+        &-weight {
+          margin-top: 0.08rem;
+          font-size: 0.12rem;
+          line-height: 0.18rem;
+          color: #b1b1b1;
         }
       }
       &-order {
-        padding-top:.16rem;
-        width:.75rem;
-        font-size:.14rem;
+        padding-top: 0.16rem;
+        width: 0.75rem;
+        font-size: 0.14rem;
         align-self: stretch;
         text-align: right;
         &-price {
-          display:inline-block;
-          font-size: .16rem;
-          line-height: .24rem;
+          display: inline-block;
+          font-size: 0.16rem;
+          line-height: 0.24rem;
           &-yen {
-            font-size:.12rem;
+            font-size: 0.12rem;
           }
         }
         &-count {
-          line-height: .24rem;
+          line-height: 0.24rem;
         }
       }
     }
@@ -125,38 +124,57 @@
     left: 0;
     border-top: 1px solid var(--color-page-bg);
     background: #fff;
-    line-height: .64rem;
-    height:.64rem;
-    display:flex;
-    align-items:center;
+    line-height: 0.64rem;
+    height: 0.64rem;
+    display: flex;
+    align-items: center;
     &-total {
       flex: 1;
-      font-size: .16rem;
-      margin-left: .1rem;
+      font-size: 0.16rem;
+      margin-left: 0.1rem;
       line-height: 1rem;
-      &-price{
-        color:#cf1322;
-        font-size: .18rem;
+      &-price {
+        color: #cf1322;
+        font-size: 0.18rem;
         font-weight: bold;
         line-height: 1rem;
         &-yen {
-          font-size: .12rem;
-          margin-right: .04rem;
+          font-size: 0.12rem;
+          margin-right: 0.04rem;
           line-height: 1rem;
           vertical-align: baseline;
         }
       }
-  
     }
     &-btn {
-      background:none;
-      border:none;
+      background: none;
+      border: none;
       background-color: var(--color-primary);
-      line-height:.44rem;
-      border-radius: .22rem;
-      width:1.43rem;
-      color:#fff;
+      line-height: 0.44rem;
+      border-radius: 0.22rem;
+      width: 1.43rem;
+      color: #fff;
+    }
+  }
+  .address-popover {
+    padding: 0 .16rem .1rem;
+    &-title {
+      line-height: 0.48rem;
+      font-size: 0.14rem;
+    }
+    &-item {
+      padding-top: 0.14rem;
+      padding-bottom: 0.28rem;
+      background: #fff;
 
+      &-name {
+        margin-right: 0.22rem;
+      }
+      &-address {
+        margin-top: 0.06rem;
+        font-size: 0.12rem;
+        line-height: 0.22rem;
+      }
     }
   }
 }
