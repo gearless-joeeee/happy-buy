@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/gearless-joeeee/happy-buy/static/css/main.0b6ce5bd.css",
-    "main.js": "/gearless-joeeee/happy-buy/static/js/main.8c1be921.js",
+    "main.js": "/gearless-joeeee/happy-buy/static/js/main.37e3bedc.js",
     "static/media/slogan.png": "/gearless-joeeee/happy-buy/static/media/slogan.3358ba3a1be735d7d3e0.png",
     "index.html": "/gearless-joeeee/happy-buy/index.html",
     "main.0b6ce5bd.css.map": "/gearless-joeeee/happy-buy/static/css/main.0b6ce5bd.css.map",
-    "main.8c1be921.js.map": "/gearless-joeeee/happy-buy/static/js/main.8c1be921.js.map"
+    "main.37e3bedc.js.map": "/gearless-joeeee/happy-buy/static/js/main.37e3bedc.js.map"
   },
   "entrypoints": [
     "static/css/main.0b6ce5bd.css",
-    "static/js/main.8c1be921.js"
+    "static/js/main.37e3bedc.js"
   ]
 }
